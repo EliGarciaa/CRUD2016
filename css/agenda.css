@@ -1,0 +1,57 @@
+header {
+	background:#026C53;
+	color:#fff;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+div > h1 {
+	font-size: 90px;
+}
+
+.btn-uno {
+	background:#1a7e29;
+	color: #fff;
+	font-size: 30px;
+}
+
+.btn-uno:hover {
+	background:#1a7e29;
+	color:#000;
+}
+
+.btn-dos {
+	background:#308e91;
+	color: #fff;
+	font-size: 30px;
+}
+
+.btn-dos:hover {
+	background:#308e91;
+	color:#000;
+}
+
+.btn-tres {
+	background:#deab08;
+	color: #fff;
+	font-size: 30px;
+}
+
+.btn-tres:hover {
+	background:#deab08;
+	color:#000;
+}
+
+.btn-cuatro {
+	background:#bb0924;
+	color: #fff;
+	font-size: 30px;
+}
+
+.btn-cuatro:hover {
+	background:#bb0924;
+	color:#000;
+}

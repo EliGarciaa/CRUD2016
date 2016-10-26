@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" href="imgs/user.ico">
+	<link rel="icon" href="imgs/log.ico">
 </head>
 <body>
 <header>
@@ -32,7 +32,18 @@
 	</div>
 </div>
 </div>
-<hr>
+<div class="container">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-3"></div>
+	<div class="col-md-2">
+		<h4><label for="Buscar">Buscar Usuario <span class="glyphicon glyphicon-search"></span></label></h4>
+	</div>
+	<div class="col-md-3">
+		<h4><input class="form-control" type="text" placeholder="Escribe el usuario que deseas buscar" onkeyup="getSearch(this.value);"></h4>
+	</div>
+</div>
+</div>
 <div class="container">
 <div class="row">
 	<div class="col-md-4">
@@ -49,17 +60,8 @@
 	</div>
 	<div class="col-md-1">
 	</div>
-	<div class="col-md-7">
-		<h5><label for="Buscar">Buscar Usuario <span class="glyphicon glyphicon-search"></span></label></h5>
-		<h4><input class="form-control" type="text" placeholder="Escribe el usuario que deseas buscar"></h4>
+	<div class="col-md-7" id="MostrarTabla">
 		
-		<table class="table table-bordered table-hover table-condensed table-striped" id="table1">
-			<tr class="success">
-				<th><span class="glyphicon glyphicon-pushpin"></span> Id_Usuario</th>
-				<th><span class="glyphicon glyphicon-pushpin"></span> Correo Electronico</th>
-				<th><span class="glyphicon glyphicon-pushpin"></span> Nombre del Usuario</th>
-			</tr>
-		</table>
 	</div>
 </div>
 </div>
@@ -73,6 +75,11 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/modelo.js"></script>
 <script type="text/javascript" src="js/controlador.js"></script>
+
+<script>
+	getDatos();
+	//alert("hola mundo");
+</script>
 
 </body>
 </html>
