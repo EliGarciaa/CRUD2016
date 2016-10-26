@@ -20,7 +20,7 @@ div > h1 {
 
 .btn-uno:hover {
 	background:#1a7e29;
-	color:#000;
+	color:#fff;
 }
 
 .btn-dos {
@@ -31,7 +31,7 @@ div > h1 {
 
 .btn-dos:hover {
 	background:#308e91;
-	color:#000;
+	color:#fff;
 }
 
 .btn-tres {
@@ -42,7 +42,7 @@ div > h1 {
 
 .btn-tres:hover {
 	background:#deab08;
-	color:#000;
+	color:#fff;
 }
 
 .btn-cuatro {
@@ -53,5 +53,5 @@ div > h1 {
 
 .btn-cuatro:hover {
 	background:#bb0924;
-	color:#000;
+	color:#fff;
 }

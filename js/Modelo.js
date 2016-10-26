@@ -1,3 +1,4 @@
+// para guardar datos en la base de datos
 // nombre de la clase con sus parametros
 function guardarData(nombre, edad, ciudad, numero, correo) {
 	this.nombre = nombre;
@@ -7,11 +8,8 @@ function guardarData(nombre, edad, ciudad, numero, correo) {
 	this.correo = correo;
 }
 
-// un nuevo metodo de la clase
 guardarData.prototype.GuardarDatos = function(){
 	var _this = this;
-
-// creamos un objeto que contendra los datos
 	var DatosTodos = {};
 		DatosTodos.nombre = this.nombre;
 		DatosTodos.edad = this.edad;
@@ -19,16 +17,35 @@ guardarData.prototype.GuardarDatos = function(){
 		DatosTodos.numero = this.numero;
 		DatosTodos.correo = this.correo;
 	var DatosTodosJson = JSON.stringify(DatosTodos);
-
-// peticion ajax al controlador.php
 	$.ajax ({
 		url : 'Controlador.php',
 		type : 'GET',
 		data : {'DatosTodos' : DatosTodosJson},
 		success : function(data){
-			var Convertir = $.parseJSON(data);
-			showGuardar(Convertir);
+			alert(data);
 		}
 	})
 }
 
+
+
+
+// para llamar datos de la base de datos
+// nueva clase sin parametros
+function getDATA(){
+
+}
+
+getDATA.prototype.MostrarDATOS = function(){
+	var _this = this;
+	$.ajax ({
+		url : 'Controlador.php',
+		type : 'GET',
+		data : {'MostrarDATOS' : true},
+		success : function(data){
+			var Convertir = $.parseJSON(data);
+			showCALL(Convertir);
+			//alert(data);
+		}
+	})
+}
