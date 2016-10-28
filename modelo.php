@@ -31,6 +31,7 @@ class getMostrar
 	{
 		# code...
 	}
+
 	public function getMostrarTodo(){
 		$query = "SELECT * from UsuariosRegistro";
 		$conexion = new mysqli("localhost", "root", "JehovaLeon", "RegistroDeUsuarios");
@@ -72,13 +73,36 @@ class getMostrar
 	public function dropUser($idUser){
 		$query = "DELETE from UsuariosRegistro where Id_Usuario = $idUser";
 		$conexion = new mysqli("localhost", "root", "JehovaLeon", "RegistroDeUsuarios");
-		if($conexion->query($query))
+		if($conexion->query($query)){
 			return true;
+		}
 		else
 			return false;
-
 	}
+}
 
+
+//*******************************************************************************************************************************************
+class updateData
+{
+	public $mail;
+	public $user;
+	function __construct($mail, $user, $idUser)
+	{
+		$this->mail = $mail;
+		$this->user = $user;
+		$this->idUser = $idUser;
+	}
+	public function Updatee(){
+		$conexion = new mysqli("localhost", "root", "JehovaLeon", "RegistroDeUsuarios");
+		$query = "UPDATE UsuariosRegistro set Correo'$this->mail' , Usuario ='$this->user' where Id_Usuario = $this->idUser";
+		$conexion->query($query);
+		$query = "SELECT * from UsuariosRegistro where Id_Usuario = $this->idUser";
+		$goConexion = $conexion->query($query);
+		$conexion->close();
+		$Save = $goConexion->fetch_assoc();
+		return json_encode($Save);
+	}
 }
 
  ?>

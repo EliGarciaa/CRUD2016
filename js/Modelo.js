@@ -29,11 +29,11 @@ guardarData.prototype.GuardarDatos = function(){
 
 
 
-
+//*********************************************************************************************
 // para llamar datos de la base de datos
 // nueva clase sin parametros
 function getDATA(){
-
+	this.Contacto = [];
 }
 
 getDATA.prototype.MostrarDATOS = function(){
@@ -44,7 +44,52 @@ getDATA.prototype.MostrarDATOS = function(){
 		data : {'MostrarDATOS' : true},
 		success : function(data){
 			var Convertir = $.parseJSON(data);
+			for (var i in Convertir) {
+				_this.Contacto.push(Convertir[i]);
+			}
 			showCALL(Convertir);
+			//alert(data);		
+		}
+	})
+}
+
+
+
+//********************************************************************************************
+//para buscar datos
+getDATA.prototype.BuscarData = function(Conciencia) {
+	var _this = this;
+	$.ajax ({
+		url : 'Controlador.php',
+		type : 'GET',
+		data : {'BuscarData' : Conciencia},
+		success : function(data){
+		_this.Contacto = [];
+			var Convercion = $.parseJSON(data);
+			for (var i in Convercion) {
+				_this.Contacto.push(Convercion[i]);
+			}
+			showSearch(Convercion);
+			//alert(Convercion);
+		}
+	})
+}
+
+//*************************************************************************************************
+// para eliminar datos
+getDATA.prototype.dropContacto = function(noContacto){
+	var _this = this;
+	$.ajax ({
+		url : 'Controlador.php',
+		type : 'GET',
+		data : {'dropContacto' : _this.Contacto[noContacto]["Id_Contacto"]},
+		success : function(data){
+			if (data == "1") {
+				_this.Contacto.splice(noContacto,1);
+				showCALL(_this.Contacto);
+			}
+			else
+				result(false);
 			//alert(data);
 		}
 	})

@@ -1,5 +1,8 @@
 // para enviar y guardar datos y mostrarlos a la ves
-function GuardarDatos(correo, usuario){
+function GuardarDatos(){
+	this.users = [];
+}
+GuardarDatos.prototype.setDatos = function(correo, usuario){
 	this.correo = correo;
 	this.usuario = usuario;
 }
@@ -20,20 +23,18 @@ GuardarDatos.prototype.getEnviar = function(){
 			//alert(data);
 			var getConvertir = $.parseJSON(data);
 			//alert(getConvertir);
-			showConvertir(getConvertir);
+			_this.users.push(getConvertir);
+			showMostrar();
 		}
 	})
+	alert("Guardado Exitosamente");
 }
 
 //==========================================================================================
 //******************************************************************************************
 
 //para mostrar datos de la base de datos
-function GETMostrar(){
-	this.users = [];
-}
-
-GETMostrar.prototype.MostrarTodo = function() {
+GuardarDatos.prototype.MostrarTodo = function() {
 	var _this = this;
 	$.ajax ({
 		url : 'controlador.php',
@@ -45,7 +46,7 @@ GETMostrar.prototype.MostrarTodo = function() {
 			for(var i in getdatos){
 				_this.users.push(getdatos[i]);
 			}
-			showMostrar(getdatos);
+			showMostrar();
 		}
 	})
 //alert("hola mundasxcasco");
@@ -55,7 +56,7 @@ GETMostrar.prototype.MostrarTodo = function() {
 //*************************************************************************************************************
 
 // para buscar datos de la base de datos
-GETMostrar.prototype.SearchData = function(concidencia){
+GuardarDatos.prototype.SearchData = function(concidencia){
 	var _this = this;
 	$.ajax ({
 		url : 'controlador.php',
@@ -76,7 +77,7 @@ GETMostrar.prototype.SearchData = function(concidencia){
 //*****************************************************************************************************************
 
 // para eliminar datos de la base de datos
-GETMostrar.prototype.dropUser = function(noUser){
+GuardarDatos.prototype.dropUser = function(noUser){
 	var _this = this;
 	$.ajax({
 		url : 'controlador.php',
@@ -89,6 +90,30 @@ GETMostrar.prototype.dropUser = function(noUser){
 			}
 			else
 				resultDropUser(false);
+		}
+	})
+}
+
+//*****************************************************************************************************************
+// para editar datos de la base de datos
+GuardarDatos.prototype.UpdateData = function(newMail, newNameUser, idUser){
+
+	var _this = this;
+
+	var updateBox = {};
+		updateBox.mail = newMail;
+		updateBox.user = newNameUser;
+		updateBox.idUser = idUser;
+	var updateBoxJSON = JSON.stringify(updateBox);
+
+	$.ajax ({
+		url : 'controlador.php',
+		type : 'GET',
+		data : {'updateBox' : updateBoxJSON},
+		success : function(data){
+			alert(data);
+			/*var Convertidor = $.parseJSON(data);
+			showConvertido(Convertidor);*/
 		}
 	})
 }

@@ -3,6 +3,11 @@ header {
 	color:#fff;
 }
 
+section {
+	background:#ffffff;
+	color:#000;
+}
+
 * {
 	margin: 0;
 	padding: 0;

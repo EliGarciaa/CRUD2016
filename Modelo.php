@@ -25,9 +25,7 @@ class GuardarDATA
 
 
 
-
-
-
+//*****************************************************************************************************************************
 class MostrarData
 {
 	function __construct()
@@ -48,6 +46,42 @@ class MostrarData
 			array_push($BoxData, $MyAVC);
 		}
 		return $BoxData;
+	}
+}
+
+
+
+//*****************************************************************************************************************************
+class SearchData
+{
+	function __construct()
+	{
+
+	}
+	public function SearchDatos($Conciencia){
+		$query = "SELECT * from Contactos where Nombre like '%$Conciencia%'";
+		$conexion = new mysqli("localhost", "root", "JehovaLeon", "AVC");
+		$NewCall = $conexion->query($query);
+		$conexion->close();
+		$BoxDato = array();
+		while ($cntact = $NewCall->fetch_assoc()) {
+			$MyAV = array();
+			foreach ($cntact as $key => $value) {
+				$MyAV[$key] = $value;
+			}
+			array_push($BoxDato, $MyAV);
+		}
+		return $BoxDato;
+	}
+
+	public function DeleteData($idContacto){
+		$query = "DELETE from Contactos where Id_Contacto = $idContacto";
+		$conexion = new mysqli("localhost", "root", "JehovaLeon", "AVC");
+		if ($conexion->query($query)) {
+			return true;
+		}
+		else
+			return false;
 	}
 }
 

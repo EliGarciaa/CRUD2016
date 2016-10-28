@@ -30,6 +30,8 @@
 		echo json_encode($Concidencias);
 	}
 
+
+//********************************************************************************************************************************
 	if (isset($_GET["dropUser"])) {
 		$user = new getMostrar();
 		$statusDrop = $user->dropUser($_GET["dropUser"]);
@@ -38,5 +40,13 @@
 		}
 		else
 			echo false;
+	}
+
+
+	if (isset($_GET["updateBox"])) {
+		$newData = json_decode($_GET["updateBox"], true);
+		$user = new updateData($newData["mail"],$newData["user"],$newData["idUser"]);
+		$dataUpdate = $user->Updatee();
+		echo "$dataUpdate";
 	}
  ?>

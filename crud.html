@@ -65,10 +65,44 @@
 	</div>
 </div>
 </div>
+
+<div class="modal fade" id="modal-id">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3 class="modal-title">Editar</h3>
+</div>
+<div class="modal-body">
+	<div class="container-fluid">
+	<div class="row">
+		<h4>Ingrese los cambios que desea realizar.</h4>
+		<div class="col-md-2">
+			<h4><label for="correo"></label>Correo</h4>
+		</div>
+		<div class="col-md-4">
+			<h4><input class="form-control" id="mail" type="text" placeholder="Correo Electronico"></h4>
+		</div>
+		<div class="col-md-2">
+			<h4><label for="correo"></label>Usuario</h4>
+		</div>
+		<div class="col-md-4">
+			<h4><input class="form-control" id="user" type="text" placeholder="Nombre"></h4>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-lg btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span></button>
+	<button type="button" class="btn btn-lg btn-info" onclick="updateUser();"><span class="glyphicon glyphicon-ok"></span></button>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 	<footer>
-		
+
 	</footer>
 
 <script type="text/javascript" src="js/jquery.js"></script>
